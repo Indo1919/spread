@@ -11,11 +11,15 @@ html {
 	--orange:#e8a63f;
 	--red:#e0623f;
 	--light:#9bb8c6;
+
+	/*background of text panel*/
 	--cream:#fdf9ec;
+
+	/*grid lines color*/
 	--line:#111111;
 
-/*fonts*/
 
+/*fonts*/
 --font-body:'Space Grotesk', sans-serif;
 --font-display:'Syne';
 
@@ -27,27 +31,27 @@ html {
 	--size-sm:1.8rem;
 	--size-xsm:1rem;
 
-	/*black grid lines*/
-	--line-width: calc(var(var(--size-xsm))/8);
+	/*black grid line thickness*/
+	--line-width: calc(var(--size-xsm) / 8);
 
-	/*mobile*/
-	--title-size:var(--size-md);
-	--heading-size:var(--size-xsm);
-	--text-size: calc(var(--size-xsm)*0.75);
+	/*mobile values, below media command is making these values bigger for wider screens*/
+	--title-size:var(--size-lg);
+	--heading-size:calc(var(--size-xsm) * 1.25);
+	--text-size: calc(var(--size-xsm) * 0.9);
 	--panel-padding:var(--size-xsm);
 
 
 /*general document setup*/
-
 	line-height:1.45;
 	margin-inline: auto;
 }
 
+/*desktop screen adjust when the screen is bigger than 700px*/
 @media (width > 700px) {
 
 	:root {
 		--title-size:var(--size-lg);
-		--heading-size:calc((var--size-xsm)*1.25);
+		--heading-size:calc((var--size-xsm) * 1.25);
 		--panel-padding:var(--size-md);
 	}
 }
@@ -57,15 +61,17 @@ body {
 	flex-grow: 1;
 	max-inline-size: 90ch;
 	background-color: var(--line);
-	border: var(--line-width) solid var(--line);
+	padding: var(--line-width);
 }
 
+/*vertical stacks and the gaps create the black lines*/
 body,main,article {
 	display:flex;
 	flex-direction: column;
 	gap: var(--line-width)
 }
 
+/*horizontal rows header and section lay their children out side by side*/
 header,section {
 	display: flex;
 	gap: var(--line-width)
@@ -91,18 +97,41 @@ footer {
 	font-size: var(--text-size);
 }
 
-h1,h2,footer,.text,.credits {
+ul {
+	display:flex;
+	gap: var(--line-width);
+	min-block-size: var(--size-md);
+
+	li{
+		flex-grow: 1;
+		flex-basis:0%;
+		&:nth-child(1) {background-color: var(--blue);}
+		&:nth-child(2) {background-color: var(--orange);}
+		&:nth-child(3) {background-color: var(--red);}
+	}
+
+}
+
+h1,h2,footer,.credits {
 	background-color: var(--cream);
 	padding-block: var(--size-xsm);
 	padding-inline: var(--panel-padding);
 }
 
+.block {
+	flex-grow: 1;
+	flex: basis 0%;
+	display: none;
+}
+
+/*on screen wider than 700px the side column appears*/
 @media (width > 700px) {
 	.block {
 		display: block;
 	}
 }
 
+/*center column hold the heading, text, and strips*/
 .center {
 	flex-grow: 3;
 	flex-basis: 0%;
@@ -111,49 +140,36 @@ h1,h2,footer,.text,.credits {
 	gap: var(--line-width)
 }
 
-.text {
-	font-size: var(--text-size);
-	flex-direction: column;
-}
-
-.strip {
-	display: flex;
-	gap: var(--line-width);
-	min-block-size: var(--size-md);
-}
-
-.cell {
-	flex-grow: 1;
-	flex-basis: 0%;
-}
-
+/*puts Richard Hollis name to the left and then our names to the right*/
 .credits {
 	display: flex;
 	font-size: var(--text-size);
 }
 
+/*makes it take the extra space and pushes names*/
 .hollis {
 	flex-grow: 1;
 	flex-direction: column;
 }
 
+/*our names on the right*/
 .authors {
 	display:flex;
 	flex-direction: column;
 	align-items: end;
 }
 
-/*block colors*/
-.blue {
-	background-color: var(--blue)
+/*header title area*/
+header {
+		.block:nth-child(1) {background-color: var(--blue);}
+		.block:nth-child(2) {background-color: var(--orange);}
+		.block:nth-child(4) {background-color: var(--blue);}
+		.block:nth-child(5) {background-color: var(--red);}
+
+/*in the header it has three strips and this changes the middle one which is the 3rd child of the center column*/
+	ul:nth-child(3) li{
+		&:nth-child(1) {background-color: var(--red);}
+		&:nth-child(2) {background-color: var(--blue);}
+		&:nth-child(3) {background-color:var(--orange);}
+	}
 }
-
-.orange {
-	background-color: var(--orange);
-}
-
-.red {
-	background-color: var(--red);
-}
-
-
