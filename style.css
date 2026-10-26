@@ -59,7 +59,8 @@ html {
 
 body {
 	flex-grow: 1;
-	max-inline-size: 90ch;
+	max-inline-size: none;
+	width: 100%;
 	background-color: var(--line);
 	padding: var(--line-width);
 }
@@ -120,7 +121,7 @@ h1,h2,footer,.credits {
 
 .block {
 	flex-grow: 1;
-	flex: basis 0%;
+	flex-basis: 0%;
 	display: none;
 }
 
@@ -163,8 +164,13 @@ h1,h2,footer,.credits {
 header {
 		.block:nth-child(1) {background-color: var(--blue);}
 		.block:nth-child(2) {background-color: var(--orange);}
+		.block:nth-child(3) {background-color: var(--red);}
 		.block:nth-child(4) {background-color: var(--blue);}
 		.block:nth-child(5) {background-color: var(--red);}
+		.block:nth-child(6) {background-color: var(--orange);}
+		.block:nth-child(7) {background-color: var(--red);}
+		.block:nth-child(8) {background-color: var(--blue);}
+		.block:nth-child(9) {background-color: var(--orange);}
 
 /*in the header it has three strips and this changes the middle one which is the 3rd child of the center column*/
 	ul:nth-child(3) li{
