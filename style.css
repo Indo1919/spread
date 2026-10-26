@@ -153,6 +153,25 @@ h1,h2,footer,.credits {
 	flex-direction: column;
 }
 
+.lower-row {
+    display: grid;
+    grid-template-columns: 4fr 3fr 4fr;
+}
+
+.lower-pair {
+    display: flex;
+    gap: var(--line-width);
+}
+
+.lower-pair > div {
+    background-color: var(--blue);
+    height: 3rem;
+    flex-grow: 1;
+}
+
+.lower-pair > div:nth-child(2) {
+    background-color: var(--orange);
+}
 /*our names on the right*/
 .authors {
 	display:flex;
