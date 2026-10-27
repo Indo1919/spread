@@ -172,6 +172,34 @@ h1,h2,footer,.credits {
 .lower-pair > div:nth-child(2) {
     background-color: var(--orange);
 }
+
+/*just added this*/
+
+.side-colour {
+    display: none;
+    background-color: var(--red);
+}
+
+.rectangle {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--line-width);
+}
+
+.rectangle {
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.side-colour {
+    display: block;
+}
+
+.text-panel {
+    display: block;
+    background-color: var(--cream);
+    padding: var(--panel-padding);
+}
+
 /*our names on the right*/
 .authors {
 	display:flex;
