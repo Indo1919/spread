@@ -251,7 +251,19 @@ article{
 	}
 }
 
-.context h2{
+.context h2,
+.module h2,
+.karl h2{
 	background-color: var(--orange);
 }
+
+.choices h2,
+.why-switzerland h2{
+	background-color: var(--red);
+}
+
+.proportion h2,
+.info-structure h2,
+.max-bill h2{
+	background-color: var(--blue);
 }
