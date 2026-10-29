@@ -35,8 +35,8 @@ html {
 	/*mobile values, below media command is making these values bigger for wider screens*/
 	--title-size:var(--size-lg);
 	--heading-size:calc(var(--size-xsm) * 1.25);
-	--text-size: calc(var(--size-xsm) * 0.9);
-	--panel-padding:var(--size-xsm);
+	--text-size:var(--size-xsm);
+	--panel-padding:calc(var(--size-xsm) * 1.25);
 
 
 /*general document setup*/
@@ -50,13 +50,12 @@ html {
 	:root {
 		--title-size:var(--size-xlg);
 		--heading-size:calc(var(--size-xsm) * 1.25);
-		--panel-padding:var(--size-md);
+		--panel-padding:var(--size-lg);
 	}
 }
 
 
 body {
-	max-inline-size: none;
 	background-color: var(--line);
 	padding: var(--line-width);
 }
@@ -266,4 +265,5 @@ article{
 .info-structure h2,
 .max-bill h2{
 	background-color: var(--blue);
+	}
 }
