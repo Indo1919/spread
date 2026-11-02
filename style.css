@@ -207,7 +207,7 @@ article ul{
 @media (width > 700px){
 
 h1{
-	align-items: start;
+	justify-content: center;
 	flex-grow: 1;
 	justify-content: center;
 }
