@@ -9,6 +9,7 @@ html {
 	--orange:#e8a63f;
 	--red:#e0623f;
 	--light:#9bb8c6;
+	--color-links: dodgerblue;
 
 	/*background of text panel*/
 	--cream:#fdf9ec;
@@ -49,7 +50,7 @@ html {
 
 	:root {
 		--title-size:var(--size-xlg);
-		--heading-size:calc(var(--size-xsm) * 1.25);
+		--heading-size:calc(var(--size-xsm) * 1.15);
 		--panel-padding:var(--size-lg);
 	}
 }
@@ -89,6 +90,8 @@ h1 {
 
 h2 {
 	font-size: var(--heading-size);
+	justify-content: start;
+	gap:var(--size-xsm)
 }
 
 footer {
@@ -115,6 +118,13 @@ h1,h2,footer,.text,.credits {
 	padding-block: var(--size-xsm);
 	padding-inline: var(--panel-padding);
 }
+
+a{
+	color:var(--color-links);
+	text-decoration: underline;
+}
+
+
 
 .block {
 	flex-grow: 1;
@@ -183,35 +193,29 @@ section {
 	flex-grow: 1;
 }
 
-/*section numbers to show only in the desktop version*/
-.number {
-	display: none;
+article ul{
+	display:none;
 }
+
+.wide-box h2{
+	flex-direction: column;
+}
+
+.wide-box .number{
+	font-size:var(--size-lg)
+}
+
+/*section numbers to show only in the desktop version*/
 
 /*on screen wider than 700px the side column appears*/
 @media (width > 700px){
 
 h1{
-	flex-direction: row;
-	flex-wrap: wrap;
-	column-gap: var(--size-xsm);
-}
-
-h2{
-	justify-content: start;
-	gap: var(--size-xsm);
-}
-
-.number{
-display:block;
+	align-items: start;
 }
 
 .block{
 	display: block;
-}
-
-article ul{
-	display:none;
 }
 
 article{
@@ -229,12 +233,11 @@ article{
 	h2{
 		flex-grow: 1;
 		flex-basis: 0%;
-		flex-direction: column;
 		font-size: var(--size-md);
 	}
 
 	.number{
-		font-size: var(--size-lg);
+		font-size: var(--size-xlg);
 	}
 
 	.text{
@@ -248,7 +251,8 @@ article{
 		flex-grow: 1;
 		flex-basis: 0%;
 	}
-}
+	}
+}/*closes media here so the colors rules apply on all screen sizes*/
 
 .context h2,
 .module h2,
@@ -266,4 +270,3 @@ article{
 .max-bill h2{
 	background-color: var(--blue);
 	}
-}
