@@ -34,7 +34,7 @@ html {
 	--line-width: calc(var(--size-xsm) / 8);
 
 	/*mobile values, below media command is making these values bigger for wider screens*/
-	--title-size:var(--size-lg);
+	--title-size:clamp(var(--size-lg), 13vw, 6rem);
 	--heading-size:calc(var(--size-xsm) * 1.25);
 	--text-size:var(--size-xsm);
 	--panel-padding:calc(var(--size-xsm) * 1.25);
@@ -49,7 +49,7 @@ html {
 @media (width > 700px) {
 
 	:root {
-		--title-size:var(--size-xlg);
+		--title-size:clamp(var(--size-xlg), 8vw, 10rem);
 		--heading-size:calc(var(--size-xsm) * 1.15);
 		--panel-padding:var(--size-lg);
 	}
@@ -85,6 +85,7 @@ h1 {
 	flex-direction: column;
 	align-items: center;
 	font-size: var(--title-size);
+	text-transform:uppercase;
 	font-weight: 700;
 }
 
