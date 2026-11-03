@@ -38,6 +38,7 @@ html {
 	--heading-size:calc(var(--size-xsm) * 1.25);
 	--text-size:var(--size-xsm);
 	--panel-padding:calc(var(--size-xsm) * 1.25);
+	--paragraph-space:var(--size-xsm);
 
 
 /*general document setup*/
@@ -46,12 +47,13 @@ html {
 }
 
 /*desktop screen adjust when the screen is bigger than 700px*/
-@media (width > 700px) {
+@media (width > 700px), print {
 
 	:root {
 		--title-size:clamp(var(--size-xlg), 5vw, 8rem);
 		--heading-size:calc(var(--size-xsm) * 1.15);
 		--panel-padding:var(--size-lg);
+		--paragraph-space:calc(var(--size-xsm)*1.25);
 	}
 }
 
@@ -185,9 +187,19 @@ section {
 }
 
 /*box for the paragraphs*/
-.text {
-	font-size: var(--text-size);
-	flex-grow: 1;
+.text,
+.column{
+	display:flex;
+	flex-direction:column;
+	gap:var(--paragraph-space);
+
+}
+
+.text{
+	font-size:var(--text-size);
+	flex-grow:1;
+	padding-block:var(--panel-padding);
+
 }
 
 article ul{
@@ -205,12 +217,12 @@ article ul{
 /*section numbers to show only in the desktop version*/
 
 /*on screen wider than 700px the side column appears*/
-@media (width > 700px){
+@media (width > 700px), print{
 
 h1{
 	justify-content: center;
 	flex-grow: 1;
-	justify-content: center;
+
 }
 
 header{
@@ -244,7 +256,7 @@ article{
 	}
 
 	.text{
-		display: flex;
+		flex-direction:row;
 		flex-grow: 2;
 		flex-basis: 0%;
 		gap:var(--panel-padding);
@@ -273,3 +285,44 @@ article{
 .max-bill h2{
 	background-color: var(--blue);
 	}
+
+@media print {
+
+	:root{
+		--blue: #6e6e6e;
+		--orange: #a8a8a8;
+		--red: #8a8a8a;
+		--light: #c8c8c8;
+		--cream: #ffffff;
+
+		--title-size: calc(var(--size-xlg) *1.25);
+		--heading-size: var(--size-xsm);
+		--text-size: calc(var(--size-xsm) *0.75);
+		--panel-padding: calc(var(--size-xsm) *0.75);
+		--paragraph-space: calc(var(--size-xsm) *0.4);
+
+		h1{
+			align-items: start;
+		}
+
+		header{
+			block-size: calc(100vh - var(--line-width) *2);
+		}
+
+		h1,
+		h2,
+		footer,
+		.text,
+		.credits{
+			padding-block: calc(var(--size-xsm) *0.5);
+		}
+
+		.wide-box .number{
+			font-size: var(--size-md);
+
+		}
+
+		.wide-box h2{
+			font-size: calc(var(--size-xsm) * 1.25):
+		}
+}
