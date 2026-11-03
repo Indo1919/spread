@@ -42,7 +42,6 @@ html {
 
 
 /*general document setup*/
-	line-height:1.45;
 	margin-inline: auto;
 }
 
@@ -94,7 +93,9 @@ h1 {
 h2 {
 	font-size: var(--heading-size);
 	justify-content: start;
-	gap:var(--size-xsm)
+	gap:var(--size-xsm);
+	position: sticky;
+	inset-block-start: 0;
 }
 
 footer {
@@ -273,12 +274,12 @@ article{
 .module h2,
 .karl h2{
 	background-color: var(--orange);
-}
+	}
 
 .choices h2,
 .why-switzerland h2{
 	background-color: var(--red);
-}
+	}
 
 .proportion h2,
 .info-structure h2,
@@ -286,43 +287,80 @@ article{
 	background-color: var(--blue);
 	}
 
+@media (hover: hover){
+
+	/*column grows when you hover over it intentionally does not work on mobile*/
+.block{
+	transition-property: flex-grow;
+	transition-duration: 0.6s;
+	}
+
+.block:hover{
+	flex-grow: 3;
+	}
+
+/*module that user is reading filles with it own color*/
+.text{
+	transition-property: background-color;
+	transition-duration: 0.4s;
+	}
+
+.context:hover .text, .module:hover .text, .karl:hover .text{
+	background-color: var(--orange);
+	}
+
+.choices:hover .text, .why-switzerland:hover .text{
+	background-color: var(--red);
+	}
+
+.proportion:hover .text, .info-structure:hover .text, .max-bill:hover .text{
+	background-color: var(--blue);
+	--color-links:var(--cream);
+	}
+}
+
 @media print {
 
-	:root{
-		--blue: #6e6e6e;
-		--orange: #a8a8a8;
-		--red: #8a8a8a;
-		--light: #c8c8c8;
-		--cream: #ffffff;
+html{
+	print-color-adjust: exact;
+	}
 
-		--title-size: calc(var(--size-xlg) *1.25);
-		--heading-size: var(--size-xsm);
-		--text-size: calc(var(--size-xsm) *0.75);
-		--panel-padding: calc(var(--size-xsm) *0.75);
-		--paragraph-space: calc(var(--size-xsm) *0.4);
+:root{
+	--blue: #6e6e6e;
+	--orange: #a8a8a8;
+	--red: #8a8a8a;
+	--light: #c8c8c8;
+	--cream: #ffffff;
 
-		h1{
-			align-items: start;
-		}
+	--title-size: calc(var(--size-xlg) * 1.25);
+	--heading-size: var(--size-xsm);
+	--text-size: calc(var(--size-xsm) * 0.75);
+	--panel-padding: calc(var(--size-xsm) * 0.75);
+	--paragraph-space: calc(var(--size-xsm) * 0.4);
+	}
 
-		header{
-			block-size: calc(100vh - var(--line-width) *2);
-		}
+h1{
+	align-items: start;
+	}
 
-		h1,
-		h2,
-		footer,
-		.text,
-		.credits{
-			padding-block: calc(var(--size-xsm) *0.5);
-		}
+header{
+	block-size: calc(100vh - var(--line-width) *2);
+	}
 
-		.wide-box .number{
-			font-size: var(--size-md);
+h1,
+h2,
+footer,
+.text,
+.credits{
+	padding-block: calc(var(--size-xsm) *0.5);
+	}
 
-		}
+.wide-box .number{
+	font-size: var(--size-md);
+	}
 
-		.wide-box h2{
-			font-size: calc(var(--size-xsm) * 1.25):
-		}
+.wide-box h2{
+	font-size: calc(var(--size-xsm) * 1.25);
+	}
 }
+
