@@ -46,7 +46,7 @@ html {
 	margin-inline: auto;
 }
 
-/*desktop screen adjust when the screen is bigger than 700px*/
+/*desktop screen adjust when the screen is bigger than 900px*/
 @media (width > 900px), print {
 
 	:root {
@@ -138,7 +138,7 @@ a{
 /*tab selector feature intentionally made to look similar to grid line styling*/
 a:focus-visible{
 	background-color: var(--line);
-	color:var(--cream)
+	color:var(--cream);
 }
 
 
@@ -216,6 +216,15 @@ section {
 	flex-grow:1;
 	padding-block:var(--panel-padding);
 
+}
+
+p{
+	max-inline-size: 65ch;
+}
+
+blockquote{
+	font-family: var(--font-display);
+	font-size: var(--size-md);
 }
 
 /*hides the list in the article*/
