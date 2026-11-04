@@ -384,7 +384,7 @@ html{
 /*adjusted text sizes and spacing for print*/
 	--title-size: calc(var(--size-xlg) * 1.25);
 	--heading-size: var(--size-xsm);
-	--text-size: calc(var(--size-xsm) * 0.7);
+	--text-size: calc(var(--size-xsm) * 0.65);
 	--panel-padding: calc(var(--size-xsm) * 0.75);
 	--paragraph-space: calc(var(--size-xsm) * 0.4);
 	}
@@ -419,6 +419,10 @@ footer,
 /*changes header size for print*/
 .wide-box h2{
 	font-size: calc(var(--size-xsm) * 1.25);
+	}
+
+blockquote{
+	font-size: var(--size-sm);
 	}
 
 body > ul{
