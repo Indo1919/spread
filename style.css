@@ -1,10 +1,11 @@
+/*font for the site*/
 html {
 	font-family:var(--font-body);
 }
 
 :root {
 
-/*colors*/
+/*colors used throughout the website*/
 	--blue:#5b8db0;
 	--orange:#e8a63f;
 	--red:#e0623f;
@@ -18,12 +19,12 @@ html {
 	--line:#111111;
 
 
-/*fonts*/
+/*fonts for body and heading*/
 --font-body:'Space Grotesk', sans-serif;
 --font-display:'Syne';
 
 
-/*sizing*/
+/*sizing for space and text*/
 	--size-xlg: 4rem;
 	--size-lg: 3rem;
 	--size-md:2rem;
@@ -56,7 +57,7 @@ html {
 	}
 }
 
-
+/*creates the black background that forms a grid line*/
 body {
 	background-color: var(--line);
 	padding: var(--line-width);
@@ -75,13 +76,14 @@ header{
 	gap: var(--line-width)
 }
 
-
+/*uses flex box to align text and uses display font for both headings*/
 h1,h2 {
 	font-family: var(--font-display);
 	display: flex;
 	justify-content: center;
 }
 
+/*styling for the main title*/
 h1 {
 	flex-direction: column;
 	align-items: center;
@@ -90,6 +92,7 @@ h1 {
 	font-weight: 700;
 }
 
+/*styling for the section heading*/
 h2 {
 	font-size: var(--heading-size);
 	justify-content: start;
@@ -98,15 +101,18 @@ h2 {
 	inset-block-start: 0;
 }
 
+/*sets footer text size*/
 footer {
 	font-size: var(--text-size);
 }
 
+/*creates the colour blocks with the height*/
 ul {
 	display:flex;
 	gap: var(--line-width);
 	min-block-size: var(--size-md);
 
+/*each block takes up equal space*/
 	li{
 		flex-grow: 1;
 		flex-basis:0%;
@@ -117,19 +123,21 @@ ul {
 
 }
 
+/*gives the text colour and also adds padding so the text is not on the edge*/
 h1,h2,footer,.text,.credits {
 	background-color: var(--cream);
 	padding-block: var(--size-xsm);
 	padding-inline: var(--panel-padding);
 }
 
+/*makes the text with links underlined*/
 a{
 	color:var(--color-links);
 	text-decoration: underline;
 }
 
 
-
+/*creates the blocks on the side and hides it when its in mobile*/
 .block {
 	flex-grow: 1;
 	flex-basis: 0%;
@@ -196,6 +204,7 @@ section {
 
 }
 
+/*styling for the paragraph boxes and fills the boxes*/
 .text{
 	font-size:var(--text-size);
 	flex-grow:1;
@@ -203,14 +212,17 @@ section {
 
 }
 
+/*hides the list in the article*/
 article ul{
 	display:none;
 }
 
+/*stacks the heading in the wider section*/
 .wide-box h2{
 	flex-direction: column;
 }
 
+/*makes the number in the header larger*/
 .wide-box .number{
 	font-size:var(--size-lg)
 }
@@ -220,6 +232,7 @@ article ul{
 /*on screen wider than 700px the side column appears*/
 @media (width > 700px), print{
 
+/*centers the title and fills extra space*/
 h1{
 	justify-content: center;
 	flex-grow: 1;
@@ -230,19 +243,23 @@ header{
 	min-block-size: 75vh;
 }
 
+/*shows coloured blocks on desktop*/
 .block{
 	display: block;
 }
 
+/*changes article into two column grid*/
 article{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
+/*makes wide box and footer span across both columns*/
 .wide-box, footer{
 	grid-column:span 2;
 }
 
+/*changes into horizontal layout*/
 .wide-box{
 	flex-direction: row;
 
@@ -270,23 +287,30 @@ article{
 	}
 }/*closes media here so the colors rules apply on all screen sizes*/
 
+
+/*section colours for mobile and desktop*/
+
+/*orange heading*/
 .context h2,
 .module h2,
 .karl h2{
 	background-color: var(--orange);
 	}
 
+/*red heading*/
 .choices h2,
 .why-switzerland h2{
 	background-color: var(--red);
 	}
 
+/*blue heading*/
 .proportion h2,
 .info-structure h2,
 .max-bill h2{
 	background-color: var(--blue);
 	}
 
+/*hover effects*/
 @media (hover: hover){
 
 	/*column grows when you hover over it intentionally does not work on mobile*/
@@ -295,6 +319,7 @@ article{
 	transition-duration: 0.6s;
 	}
 
+	/*coloured side blocks change wider when hovered on the side*/
 .block:hover{
 	flex-grow: 3;
 	}
@@ -305,26 +330,31 @@ article{
 	transition-duration: 0.4s;
 	}
 
+/*section turns orange when hovered over*/
 .context:hover .text, .module:hover .text, .karl:hover .text{
 	background-color: var(--orange);
 	}
 
+/*section turns red when hovered over*/
 .choices:hover .text, .why-switzerland:hover .text{
 	background-color: var(--red);
 	}
 
+/*section turns red when hovered over*/
 .proportion:hover .text, .info-structure:hover .text, .max-bill:hover .text{
 	background-color: var(--blue);
 	--color-links:var(--cream);
 	}
 }
 
+/*print styling and formating when website is printed*/
 @media print {
 
 html{
 	print-color-adjust: exact;
 	}
 
+/*replaces original website colour with greyscale*/
 :root{
 	--blue: #6e6e6e;
 	--orange: #a8a8a8;
@@ -332,6 +362,7 @@ html{
 	--light: #c8c8c8;
 	--cream: #ffffff;
 
+/*adjusted text sizes and spacing for print*/
 	--title-size: calc(var(--size-xlg) * 1.25);
 	--heading-size: var(--size-xsm);
 	--text-size: calc(var(--size-xsm) * 0.75);
@@ -343,10 +374,12 @@ h1{
 	align-items: start;
 	}
 
+/*changes the header height for print version*/
 header{
 	block-size: calc(100vh - var(--line-width) *2);
 	}
 
+/*reduces padding so more can fit on the page*/
 h1,
 h2,
 footer,
@@ -355,10 +388,12 @@ footer,
 	padding-block: calc(var(--size-xsm) *0.5);
 	}
 
+/*numbers are smaller for print*/
 .wide-box .number{
 	font-size: var(--size-md);
 	}
 
+/*changes header size for print*/
 .wide-box h2{
 	font-size: calc(var(--size-xsm) * 1.25);
 	}
