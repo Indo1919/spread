@@ -420,5 +420,10 @@ footer,
 .wide-box h2{
 	font-size: calc(var(--size-xsm) * 1.25);
 	}
+
+body > ul{
+	display:none;
+	}
+
 }
 
